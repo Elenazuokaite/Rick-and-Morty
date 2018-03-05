@@ -1,0 +1,86 @@
+<section>
+  <header>
+    <h1>The Rick and Morty Cards</h1>
+  </header>
+  <h4>Apply filters</h4>
+  <div class="filters">
+    <mat-tab-group>
+      <mat-tab label="Name">
+        <div>
+          <mat-form-field>
+            <input matInput placeholder="Character name" (input)="onSearchChange($event.target.value)">
+          </mat-form-field>
+        </div>
+      </mat-tab>
+      <mat-tab label="Gender">
+        <div>
+          <mat-form-field>
+            <mat-select placeholder="Select gender" (change)="filterByGender($event.value)">
+              <mat-option *ngFor="let gender of genders" [value]="gender">
+                {{ gender }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+      <mat-tab label="Status">
+        <div>
+          <mat-form-field>
+            <mat-select placeholder="Select status" (change)="filterByStatus($event.value)">
+              <mat-option *ngFor="let stat of status" [value]="stat">
+                {{ stat }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+    <div>
+      <button class="prev" mat-button (click)="prevPage()">
+        < Previous page</button>
+          <button class="next" mat-button (click)="nextPage()">Next page ></button>
+    </div>
+  </div>
+  <main *ngIf="characters">
+    <mat-card *ngFor="let character of characters">
+      <mat-card-header>
+        <mat-card-title>{{ character.name }}</mat-card-title>
+        <mat-card-subtitle>Status: {{ character.status }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{character.image}}" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <div class="fact">
+          <p class="key">Species:</p>
+          <p>{{ character.species }}</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="fact">
+          <p class="key">Gender:</p>
+          <p>{{ character.gender }}</p>
+        </div>
+        <mat-divider></mat-divider>
+        <div class="fact">
+          <p class="key">Location:</p>
+          <p>{{ character.location.name }}</p>
+        </div>
+        <mat-divider></mat-divider>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button>
+          <mat-icon color="primary">thumb_up</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon color="warn">favorite</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>share</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </main>
+  <div class="paginator">
+    <button class="prev" mat-button (click)="prevPage()">
+      < Previous page</button>
+        <button class="next" mat-button (click)="nextPage()">Next page ></button>
+  </div>
+</section>

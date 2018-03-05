@@ -1,0 +1,70 @@
+header {
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../../assets/images/hero.png');
+  background-size: cover;
+  background-position: center;
+  h1 {
+    font-size: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+  }
+}
+
+h4 {
+  margin: 50px 50px 0 60px;
+  color: rgb(179, 179, 179);
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+mat-card {
+  padding-top: 0;
+  max-width: 400px;
+  margin: 10px;
+    .mat-card-image {
+      max-height: 290px;
+      margin-top: 0px;
+  }
+}
+mat-form-field {
+  margin-top: 20px;
+}
+.filters {
+  text-align: center;
+}
+mat-card-header {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    position: absolute;
+    bottom: 226px;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    mat-card-title {
+      font-size: 20px;
+      color: #fff;
+    }
+    mat-card-subtitle {
+      color: rgb(179, 179, 179);
+    }
+}
+.paginator {
+  text-align: center;
+  margin: 20px;
+}
+.fact {
+  display: flex;
+    justify-content: space-between;
+    .key {
+      text-transform: uppercase;
+      color: rgb(179, 179, 179);
+    }
+}
